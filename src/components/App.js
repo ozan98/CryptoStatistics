@@ -2,7 +2,7 @@ import React from 'react'
 
 import axios from 'axios'
 
-// import '../styleSheet/App.css'
+import '../styleSheet/App.css'
 
 import Coin from './Coin'
 import {useEffect, useState} from 'react'
@@ -41,7 +41,7 @@ function App() {
   return (
     <div>
       <div>
-          <div>
+          <div className="card-container">
             {getCoins().slice(0, 11)}
           </div>
       </div>

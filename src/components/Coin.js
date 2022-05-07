@@ -8,6 +8,11 @@ import Chart from 'chart.js/auto';
 
 
 const options = {
+  responsive: true,
+  maintainAspectRatio: false,
+  tooltips: {
+    enabaled: false,
+  },
   scales: {
     x: {
       grid: {
@@ -38,6 +43,9 @@ const renderChart = (chartData, coinName) => {
         data: chartData.price,
         label: coinName,
         borderColor: 'hsl(171, 100%, 41%)',
+        pointRadius: 0,
+        pointHoverRadius: 0,
+        tension: 0.4,
       },
     ],
   }
@@ -45,13 +53,24 @@ const renderChart = (chartData, coinName) => {
 
 
 
-const Coin = ({coinName, coinPrice, coinImage, coinSymbol, coinPiceChange24, coinChart}) => {
+const Coin = ({coinName, coinPrice, coinImage, coinSymbol, coinPriceChange24, coinChart}) => {
 
 
 
     return (
           <div className="card"> 
-            <div className="container">
+            <div className="card-name-price">
+            <p>{coinName}</p>
+            <p>{coinPrice}</p>
+            </div>
+            <div className="card-image-priceChange">
+              <div className="image-symbol-container">
+                <img src={coinImage}></img>
+                <p>{coinSymbol}</p>
+              </div>
+              <p>{coinPriceChange24}</p>
+            </div>
+            <div className="chart-container">
               <Line
                 data={renderChart(coinChart, coinName)}
                 options={options}
