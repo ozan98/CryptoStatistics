@@ -1,10 +1,10 @@
 import React from 'react'
-
-import axios from 'axios'
-
 import '../styleSheet/App.css'
 
 import Coin from './Coin'
+import Header from './Header'
+import axios from 'axios'
+
 import {useEffect, useState} from 'react'
 
 
@@ -40,6 +40,10 @@ function App() {
   
   return (
     <div>
+      <div className="header-container">
+                <h1>Crypto Figures</h1>
+                <h4>Top crypto assets by market capitalization</h4>
+            </div>
       <div>
           <div className="card-container">
             {getCoins().slice(0, 11)}

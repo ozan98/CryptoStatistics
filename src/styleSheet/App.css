@@ -1,9 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+ 
+  }
 
 .card-container {
     display: grid;
-    grid-template-columns: repeat(3 , 600px);
+    grid-template-columns: repeat(3 , 460px);
     justify-items: center;
     justify-content: center;
+}
+
+.header-container {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }

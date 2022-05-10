@@ -6,8 +6,22 @@ import {Line} from 'react-chartjs-2'
 import Chart from 'chart.js/auto';
 
 
+const formatter = new Intl.NumberFormat('en-US', {
+  styel: 'curreny',
+  currency: 'CAD',
+});
+
+const toMoneyFormat = (price) => {
+  return formatter.format(price)
+}
+
 
 const options = {
+  plugins: {
+    legend: {
+      display: false,
+    }
+  },
   responsive: true,
   maintainAspectRatio: false,
   tooltips: {
@@ -61,12 +75,12 @@ const Coin = ({coinName, coinPrice, coinImage, coinSymbol, coinPriceChange24, co
           <div className="card"> 
             <div className="card-name-price">
             <p>{coinName}</p>
-            <p>{coinPrice}</p>
+            <p>${toMoneyFormat(coinPrice)}</p>
             </div>
             <div className="card-image-priceChange">
               <div className="image-symbol-container">
                 <img src={coinImage}></img>
-                <p>{coinSymbol}</p>
+                <p>{coinSymbol.toUpperCase()}</p>
               </div>
               <p>{coinPriceChange24}</p>
             </div>
