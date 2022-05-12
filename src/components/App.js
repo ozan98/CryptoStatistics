@@ -27,11 +27,12 @@ function App() {
     return coins.map((coin) => {
       return <Coin 
               key={coin.id}
-              coinName={coin.id}
+              coinName={coin.name}
               coinPrice={coin.current_price}
               coinImage={coin.image}
               coinSymbol={coin.symbol}
-              coinPriceChange24={coin.price_change_percentage_24h}
+              coinPriceChange24={coin.price_change_24h}
+              coinPriceChangePercentage24={coin.price_change_percentage_24h}
               coinChart={coin.sparkline_in_7d}
               />
     })
@@ -39,17 +40,16 @@ function App() {
 
   
   return (
-    <div>
-      <div className="header-container">
-                <h1>Crypto Figures</h1>
-                <h4>Top crypto assets by market capitalization</h4>
-            </div>
-      <div>
-          <div className="card-container">
-            {getCoins().slice(0, 11)}
+
+      <main>
+          <div className="header-container">
+            <h1>Crypto Figures</h1>
+            <h2>Top crypto assets by market capitalization</h2>
           </div>
-      </div>
-    </div>
+          <div className="card-container">
+            {getCoins().slice(0, 9)}
+          </div>
+      </main>
   );
 }
 

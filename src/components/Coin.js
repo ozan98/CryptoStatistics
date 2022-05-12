@@ -17,15 +17,14 @@ const toMoneyFormat = (price) => {
 
 
 const options = {
+  maintainAspectRatio: false,
   plugins: {
     legend: {
       display: false,
-    }
-  },
-  responsive: true,
-  maintainAspectRatio: false,
-  tooltips: {
-    enabaled: false,
+    },
+    tooltip: {
+      enabled: false,
+    },
   },
   scales: {
     x: {
@@ -65,31 +64,54 @@ const renderChart = (chartData, coinName) => {
   }
   }
 
+const renderPriceChange = (price24, percent24) => {
+  if (percent24 > 0){
+    return(
+      <p className="green-price">
+        ({percent24.toFixed(2)}%) ${price24.toFixed(2)} 
+        <i className="fa fa-sort-up green-price"/>
+      </p>
+    )
+  } else {
+    return(
+      <p className="red-price">
+        ({percent24.toFixed(2)}%) ${price24.toFixed(2)}
+        <i className="fa fa-sort-down red-price"/>
+      </p>
+    )
+  }
+}
 
 
-const Coin = ({coinName, coinPrice, coinImage, coinSymbol, coinPriceChange24, coinChart}) => {
 
-
+const Coin = ({
+  coinName, 
+  coinPrice, 
+  coinImage, 
+  coinSymbol, 
+  coinPriceChange24, 
+  coinPriceChangePercentage24, 
+  coinChart}) => {
 
     return (
           <div className="card"> 
-            <div className="card-name-price">
-            <p>{coinName}</p>
-            <p>${toMoneyFormat(coinPrice)}</p>
-            </div>
-            <div className="card-image-priceChange">
-              <div className="image-symbol-container">
-                <img src={coinImage}></img>
-                <p>{coinSymbol.toUpperCase()}</p>
+              <div className="card-name-price">
+                  <p>{coinName}</p>
+                  <p>${toMoneyFormat(coinPrice)}</p>
               </div>
-              <p>{coinPriceChange24}</p>
-            </div>
-            <div className="chart-container">
-              <Line
-                data={renderChart(coinChart, coinName)}
-                options={options}
-              />
-            </div>
+              <div className="card-image-priceChange">
+                    <div className="image-symbol-container">
+                        <img src={coinImage}></img>
+                        <span className="symbol"><p>{coinSymbol.toUpperCase()}</p></span>
+                    </div>
+                  {renderPriceChange(coinPriceChange24, coinPriceChangePercentage24)}
+              </div>
+              <div className="chart-container">
+                  <Line
+                    data={renderChart(coinChart, coinName)}
+                    options={options}
+                  />
+              </div>
           </div>
     )
 }

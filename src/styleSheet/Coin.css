@@ -1,6 +1,5 @@
+
 .card {
-    font-size: 20px;
-    font-weight: 900;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3;
     width: 430px;
@@ -11,7 +10,7 @@
 .chart-container {
     width: 432px;
     height: 120px;
-    /* padding: 2px 16px; */
+    margin-top: 20px;
 
 }
 
@@ -29,7 +28,7 @@
     justify-content: space-between;
     margin-left: 25px;
     margin-right: 25px;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .image-symbol-container {
@@ -37,7 +36,20 @@
 }
 
 img {
-    height: 20px;
+    height: 25px;
+    margin-right: 5px;
+}
+
+.symbol {
+    opacity: 0.8;
+}
+
+.green-price {
+    color: green;
+}
+
+.red-price {
+    color: red;
 }
 
 
