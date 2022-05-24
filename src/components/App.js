@@ -17,7 +17,7 @@ function App() {
   const [coins, setCoins] = useState([])
   const [initialLoad, setInitialLoad] = useState(true)
   const [loading, setLoading] = useState(false)
-  const [page, setPage] = useState(9)
+  const [page, setPage] = useState(6)
 
   useEffect(() =>{
     axios.get(`${apiURL1}${page}${apiURL2}`).then(response =>{
@@ -25,14 +25,14 @@ function App() {
       
     })
     .catch(error => {
-      console.log(error.message)
+      alert('Unable to retrive Data')
     })
-    // setInitialLoad(false);
-    
+    setLoading(false)
   }, [page])
 
   const loadData = () => {
-    setPage(page + 3)
+    setLoading(true)
+    setPage(page + 6)
   }
 
   
@@ -63,9 +63,19 @@ function App() {
           <div className="card-container">
               {getCoins()}
           </div>
-          <button onClick={loadData}type="button">Load</button>
+          <div className="button-container">
+              <button onClick={loadData} 
+                      type="button"
+                      // className="button button-loading "
+                      className={`button ${loading && 'button-loading'}`}
+              > 
+                      
+                  <span className="button-text">Load More </span>
+              </button>
+          </div>
       </main>
   );
 }
 
 export default App;
+
