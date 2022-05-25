@@ -15,7 +15,6 @@ const apiURL2 = '&page=1&sparkline=true'
 
 function App() {
   const [coins, setCoins] = useState([])
-  const [initialLoad, setInitialLoad] = useState(true)
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(6)
 

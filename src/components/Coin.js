@@ -48,6 +48,7 @@ const options = {
   }
 }
 
+
 const renderChart = (chartData, coinName) => {
   return {
     labels: Array(chartData.price.length).fill(0),
