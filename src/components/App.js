@@ -2,13 +2,13 @@ import React from 'react'
 import '../styleSheet/App.css'
 
 import Coin from './Coin'
-import Header from './Header'
+
 import axios from 'axios'
 
 import {useEffect, useState} from 'react'
 
 
-const apiURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true'
+// const apiURL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true'
 
 const apiURL1 = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page='
 const apiURL2 = '&page=1&sparkline=true'

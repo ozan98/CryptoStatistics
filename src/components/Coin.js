@@ -102,7 +102,7 @@ const Coin = ({
               </div>
               <div className="card-image-priceChange">
                     <div className="image-symbol-container">
-                        <img src={coinImage}></img>
+                        <img src={coinImage} alt=""></img>
                         <span className="symbol"><p>{coinSymbol.toUpperCase()}</p></span>
                     </div>
                   {renderPriceChange(coinPriceChange24, coinPriceChangePercentage24)}
